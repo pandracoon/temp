@@ -7,9 +7,10 @@
 
 }
 
-body{
+html, body{
     font-family: NanumGothic, 나눔고딕, sans-serif;
     margin:0px;
+    height: 100%;
 }
 
 #topBar{
@@ -24,7 +25,7 @@ body{
     font-size: 30px;
     font-weight: bold;
     line-height: 50px;
-    padding-left: 20px;
+    padding-left: 10px;
     margin: 0px;
     color: white;
 }
@@ -41,13 +42,43 @@ body{
     font-size: 35px;
     line-height: 50px;
     position: absolute;
-    right: 5px;
+    right: 10px;
     cursor: pointer;
 }
 
-#sideMenu{
+#sideNav{
     width: 250px;
-    height: 800px;
+    height: 100%;
     background-color: #E1E4E7;
     line-height: 50px;
+}
+
+.menu{
+    height: 100%;
+    widows: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #384048;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.menu a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+.menu .closeButton {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 35px;
+    margin-left: 50px;
 }
