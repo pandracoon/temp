@@ -1,0 +1,53 @@
+@charset "utf-8";
+@font-face{
+    font-family: 'NanumGothic';
+    src:local('NanumGothic'),
+    url(../res/fonts/NanumGothic.eot),
+    url(../res/fonts/NanumGothic.woff) format('woff');
+
+}
+
+body{
+    font-family: NanumGothic, 나눔고딕, sans-serif;
+    margin:0px;
+}
+
+#topBar{
+    background-color: #24292E;
+    height: 50px;
+    width: 100%;
+    margin: 0px;
+    position: fixed;
+}
+
+#headTitle{
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 50px;
+    padding-left: 20px;
+    margin: 0px;
+    color: white;
+}
+
+#headSubTitle{
+    font-size: 13px;
+    font-weight: bold;
+    color: white;   
+}
+
+#menuButton{    
+    background-color: #24292E;
+    color:white;
+    font-size: 35px;
+    line-height: 50px;
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+}
+
+#sideMenu{
+    width: 250px;
+    height: 800px;
+    background-color: #E1E4E7;
+    line-height: 50px;
+}
