@@ -29,14 +29,7 @@
         <center>
             <div id="searchAnnounceText">관측지 검색</div>
             <input id="searchKeyword" type='text' onkeydown="JavaScript:Enter_Search();">
-            <ul id="searchResult">
-                <!-- <li><a href="#hello">hello</a></li>
-                <li><a href="#hello">hello</a></li>
-                <li><a href="#hello">hello</a></li>
-                <li><a href="#hello">hello</a></li>
-                <li><a href="#hello">hello</a></li>
-                <li><a href="#hello">hello</a></li> -->
-            </ul>
+            <ul id="searchResult"></ul> 
         </center>
     </div>
 </div> 
@@ -45,7 +38,7 @@
 
 <script type="text/javascript" src="js/mainPage.js"></script>
 <script type="text/javascript" src="js/searchPage.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=32d8f1fbbfe1a46a771b8dab042f0d1f"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=32d8f1fbbfe1a46a771b8dab042f0d1f&libraries=services"></script>
 <script>
     var container = document.getElementById('map');
     var options = {

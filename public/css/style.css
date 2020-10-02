@@ -102,11 +102,17 @@ html, body{
 }
 
 .search a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 8px 8px;
     text-decoration: none;
-    font-size: 40px;
+    text-align: left;
+    font-size: 25px;
     color: black;
     display: block;
+}
+
+.address {
+    font-size: 15px;
+    color: gray;
 }
 
 .search .closeButton{
@@ -123,7 +129,7 @@ html, body{
 #searchSet{
     display: none;
     position: relative;
-    top: 15%;
+    top: 10%;
 }
 #searchAnnounceText{
     font-size: 70px;
