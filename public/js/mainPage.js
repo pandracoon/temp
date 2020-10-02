@@ -1,15 +1,15 @@
 function openNav() {
-    document.getElementById("menu").style.width = "200px";
+    document.getElementById("menuPage").style.width = "200px"
 }
 
-function closeNav() {
-    document.getElementById("menu").style.width = "0";
+function openSearch(){
+    document.getElementById("searchPage").style.width = "100%"
+    document.getElementById("searchSet").style.display = "block"
 }
 
-var container = document.getElementById('map');
-var options = {
-    center: new kakao.maps.LatLng(33.450701, 126.570667),
-    level: 3
+function closeNav(view) {
+    document.getElementById(view).style.width = "0";
+    if(view == 'searchPage'){
+        document.getElementById("searchSet").style.display = "none"
+    }
 }
-
-var map = new kakao.maps.Map(container, options);

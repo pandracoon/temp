@@ -9,21 +9,51 @@
 <body>
 <div id="topBar">
     <span id="headTitle">KOMap
-    </span>
+    </span> 
     <span id="headSubTitle">KUAAA Observatory Map</span>
-    <span id="menuButton" onclick="openNav()">&#9776;</span>
+    <span id="menuButton" class="Button" onclick="openNav()">&#9776;</span>
+    <span id="openSearchButton" class="Button" onclick="openSearch()">&#128269;</span>
 </div>
 
 <div id="sideNav">
+    <span>sideNavigation</span>
 </div>
 
-<div id="menu" class="menu">
-    <a href="javascript:void(0)" class="closeButton" onClick="closeNav()">&times;</a>
+<div id="menuPage" class="menu">
+    <a href="javascript:void(0)" class="closeButton" onClick="closeNav('menuPage')">&times;</a>
 </div>
 
-<div id="map" style="width: 100px;height: 100px;"></div>
+<div id="searchPage" class="search">
+    <a href="javascript:void(0)" class="closeButton" onClick="closeNav('searchPage')">&times;</a>
+    <div id="searchSet">
+        <center>
+            <div id="searchAnnounceText">관측지 검색</div>
+            <input id="searchKeyword" type='text' onkeydown="JavaScript:Enter_Search();">
+            <ul id="searchResult">
+                <!-- <li><a href="#hello">hello</a></li>
+                <li><a href="#hello">hello</a></li>
+                <li><a href="#hello">hello</a></li>
+                <li><a href="#hello">hello</a></li>
+                <li><a href="#hello">hello</a></li>
+                <li><a href="#hello">hello</a></li> -->
+            </ul>
+        </center>
+    </div>
+</div> 
+
+<div id="map"></div>
 
 <script type="text/javascript" src="js/mainPage.js"></script>
-<script type-"text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=32d8f1fbbfe1a46a771b8dab042f0d1f"></script>
+<script type="text/javascript" src="js/searchPage.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=32d8f1fbbfe1a46a771b8dab042f0d1f"></script>
+<script>
+    var container = document.getElementById('map');
+    var options = {
+        center: new kakao.maps.LatLng(33.450701, 126.570667),
+        level: 12
+    };
+
+    var map = new kakao.maps.Map(container, options);
+</script>
 </body>
 </html>
