@@ -169,4 +169,20 @@ html, body{
     right: 10px;
 }
 
+.wrap {
+    
+}
 
+.wrap * {
+    padding: 0;
+    margin: 0;
+}
+
+.wrap .info {
+    border-radius: 5px;
+    border-bottom: 2px solid #CCC;
+    border-right: 1px solid #ccc;
+    background: #fff;
+}
+
+.info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}

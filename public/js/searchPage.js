@@ -6,6 +6,8 @@ function Enter_Search(){
     }
 }
 
+var temptemp = "오 되네 개꿀ㅋㅋㅋ";
+
 function selectItem(event){
     var target = event.target;
     var index = parseInt(target.getAttribute("id"));
