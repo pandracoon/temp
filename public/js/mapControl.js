@@ -1,4 +1,6 @@
 var map;
+var resultList;
+var searchResultMarker = null;
 
 function createMap(){
     var container = document.getElementById("map");
@@ -12,10 +14,14 @@ function createMap(){
 
 window.addEventListener("load", createMap);
 
-function setCenter(targetPlace) {
+function getLatLng(targetPlace) {
     X = targetPlace.x;
     Y = targetPlace.y;
-    var LatLon = new kakao.maps.LatLng(Y, X);
+    return new kakao.maps.LatLng(Y, X);
+}
+
+function setCenter(targetPlace) {
+    var LatLon = getLatLng(targetPlace);
     map.setCenter(LatLon);
     map.setLevel(3);
 }
@@ -26,6 +32,7 @@ function searchMapByKeyword(keyword) {
     var callback = function(result, status) {
         if (status === kakao.maps.services.Status.OK) {
             displayItem(result);
+            resultList = result;
         }else if(status === kakao.maps.services.Status.ZERO_RESULT) {
             addItem("검색 결과가 존재하지 않습니다.");
             return;
@@ -37,14 +44,67 @@ function searchMapByKeyword(keyword) {
     places.keywordSearch(keyword, callback);
 }
 
-function moveMapByAddress(address){
-    var geocoder = new kakao.maps.services.Geocoder();
+function moveMapByResultIndex(index) {
+    setCenter(resultList[index]);
+    makeMarkerCurrentPlace(resultList[index]);
+}
 
-    var callback = function(result, status){
-        if (status === kakao.maps.services.Status.OK) {
-            setCenter(result[0]);
-        }
-    }
+function makeMarkerCurrentPlace(targetPlace){
+    var LatLon = getLatLng(targetPlace);
 
-    geocoder.addressSearch(address, callback);
+    if(searchResultMarker != null) deleteMarker(searchResultMarker);
+
+    searchResultMarker = new kakao.maps.Marker({
+        position: LatLon
+    });
+
+    searchResultMarker.setMap(map);
+
+    makeInfoWindowOnMarker(targetPlace, searchResultMarker);
+}
+
+function makeInfoWindowOnMarker(targetPlace, marker){
+    var iwContent = makeContentInfoWindow(targetPlace);
+    var iwRemovable = true;
+    
+    var infoWindow = new kakao.maps.InfoWindow({
+        position: marker.getPosition(),
+        content: iwContent,
+        removable: iwRemovable
+    });
+
+    infoWindow.open(map, marker);
+}
+
+function makeContentInfoWindow(targetPlace){
+    var content = document.createElement("div");
+
+    var nameSpan = document.createElement("span");
+    nameSpan.innerHTML = targetPlace.place_name;
+
+    var addSpan = document.createElement("span");
+    addSpan.innerHTML = targetPlace.road_address_name;
+
+    var anchor = document.createElement("a");   
+    var hrefAtt = document.createAttribute("href");
+    hrefAtt.value = "#hello";
+    anchor.setAttributeNode(hrefAtt);
+    anchor.innerHTML = "새 관측지로 추가하기";
+
+    content.appendChild(nameSpan);
+    content.appendChild(document.createElement("br"));
+    content.appendChild(addSpan);
+    content.appendChild(document.createElement("br"));
+    content.appendChild(anchor);
+
+    return content;
+}
+
+function deleteMarker(marker){
+    marker.setMap(null);
+
+}
+
+function deleteInfoWindow(){
+
 }

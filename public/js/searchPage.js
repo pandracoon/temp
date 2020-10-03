@@ -8,11 +8,9 @@ function Enter_Search(){
 
 function selectItem(event){
     var target = event.target;
-    var address = target.childNodes[2].innerHTML;
     var index = parseInt(target.getAttribute("id"));
-    console.log(index);
     closeNav('searchPage');
-    moveMapByAddress(address);
+    moveMapByResultIndex(index);
 }
 
 function displayItem(result){
@@ -47,6 +45,8 @@ function addItem(targetPlace, i){
     anchor.appendChild(document.createElement("br"));
     anchor.appendChild(addSpan);
     anchor.addEventListener("click", selectItem);
+    
+    //아이콘 추가 시, css는 있으므로 잘 넣어주면 됨.
 
     item.appendChild(anchor);
 

@@ -152,6 +152,10 @@ html, body{
     border-bottom: 1px solid #C4CCCC;
 }
 
+.search ul a {
+    position: relative;
+}
+
 .search ul a:hover {
     background-color: #F7F8F8;
 }
@@ -159,3 +163,10 @@ html, body{
 #searchButton {
     background-color: white;
 }
+
+.search img {
+    position: absolute;
+    right: 10px;
+}
+
+
