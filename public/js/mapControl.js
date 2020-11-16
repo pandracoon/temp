@@ -136,7 +136,7 @@ function makeContentInfoWindow(targetPlace){
     var linkDiv = document.createElement("div");
     var anchor = document.createElement("a");
     anchor.setAttributeNode(htmlMakeTools.makeAttribute("href", "new_Observatory.html?id=" + num));
-    anchor.setAttributeNode(htmlMakeTools.makeAttribute("target", "_blank"));
+    anchor.setAttributeNode(htmlMakeTools.makeAttribute("target", "_self"));
     linkDiv.setAttributeNode(htmlMakeTools.makeAttribute("class", "link"));
     anchor.innerHTML = "새 관측지 추가하기";
     linkDiv.appendChild(anchor);
